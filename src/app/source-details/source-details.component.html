@@ -5,9 +5,9 @@
   <div class="row-1">
     <div class="col-one">
       <p style="margin-bottom:8px; padding:0;" class="text-bold">Top Headlines</p>
-      <h6 style="background: rgb(87,87,87); border:50px;color:white;margin-top:2vmin; padding:0 ; text-align: center; padding: 4px;">{{topHeadlines[0]?.source.name}}</h6>
+      <h6 style="background: rgb(87,87,87); border:50px;color:white;margin-top:2vmin; padding:0 ; text-align: center; padding: 4px;">{{headlineSource?.source?.name}}</h6>
       <div *ngFor="let headline of topHeadlines; let index=index" class="headlines">
-        <mat-card (click)="syncHeadline(index)" [routerLink]="['headlines',index]" [routerLinkActive]="['active-link']" class="headline-card">{{headline.title}}</mat-card>
+        <mat-card (click)="syncHeadline(index)" [routerLink]="['headlines',index]" [routerLinkActive]="['active-link']" class="headline-card">{{headline?.title}}</mat-card>
       </div>
     </div>
     <div class="col-two">

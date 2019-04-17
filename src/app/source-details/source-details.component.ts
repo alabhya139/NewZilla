@@ -11,6 +11,7 @@ export class SourceDetailsComponent implements OnInit {
 
   sourceId: any;
   topHeadlines: any;
+  headlineSource
   constructor(private apiService: ApiServiceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -28,11 +29,10 @@ export class SourceDetailsComponent implements OnInit {
       this.topHeadlines = data;
       this.topHeadlines = this.topHeadlines.articles;
       console.log(this.topHeadlines)
+      this.headlineSource = this.topHeadlines[0];
 
       if(this.topHeadlines!==null && this.topHeadlines !== undefined && this.topHeadlines!==""){
         this.syncHeadline(0);
-
-        console.log("OKKKKK")
 
         this.router.navigateByUrl(`/sources/${this.topHeadlines[0].source.id}/headlines/0`);
       }

@@ -1,40 +1,56 @@
 <mat-toolbar class="nav">
+  <i class="far fa-newspaper"></i>
   <h1>NewZilla</h1>
   <button style="margin-left:2vmin;" mat-button >Home</button>
   <button mat-button [matMenuTriggerFor]="filter">Filter</button>
 
 <mat-menu #filter="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="categories">Categories</button>
+  <button name="hello" mat-menu-item [matMenuTriggerFor]="categories">Categories</button>
   <button mat-menu-item [matMenuTriggerFor]="language">Language</button>
-  <button mat-menu-item [matMenuTriggerFor]="country">Country</button>
 </mat-menu>
 
 <mat-menu #categories="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
-  <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
-  <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
-  <button mat-menu-item>Birds</button>
-  <button mat-menu-item>Mammals</button>
+  <button (click)="filterIt('category','business')" mat-menu-item>Business</button>
+  <button (click)="filterIt('category','entertainment')" mat-menu-item>Entertainment</button>
+  <button (click)="filterIt('category','general')" mat-menu-item>General</button>
+  <button (click)="filterIt('category','health')" mat-menu-item>Health</button>
+  <button (click)="filterIt('category','science')" mat-menu-item>Science</button>
+  <button (click)="filterIt('category','sports')" mat-menu-item>Sports</button>
+  <button (click)="filterIt('category','technology')" mat-menu-item>Technology</button>
 </mat-menu>
 
 <mat-menu #language="matMenu">
-  <button mat-menu-item>Insects</button>
-  <button mat-menu-item>Molluscs</button>
-  <button mat-menu-item>Crustaceans</button>
-  <button mat-menu-item>Corals</button>
-  <button mat-menu-item>Arachnids</button>
-  <button mat-menu-item>Velvet worms</button>
-  <button mat-menu-item>Horseshoe crabs</button>
-</mat-menu>
-
-<mat-menu #country="matMenu">
-  <button mat-menu-item>Baikal oilfish</button>
-  <button mat-menu-item>Bala shark</button>
-  <button mat-menu-item>Ballan wrasse</button>
-  <button mat-menu-item>Bamboo shark</button>
-  <button mat-menu-item>Banded killifish</button>
+  <button (click)="filterIt('language','ar')" mat-menu-item>Arabic</button>
+  <button (click)="filterIt('language','de')" mat-menu-item>German</button>
+  <button (click)="filterIt('language','en')" mat-menu-item>English</button>
+  <button (click)="filterIt('language','es')" mat-menu-item>Spanish</button>
+  <button (click)="filterIt('language','fr')" mat-menu-item>French</button>
+  <button (click)="filterIt('language','he')" mat-menu-item>Hebrew</button>
+  <button (click)="filterIt('language','it')" mat-menu-item>Italian</button>
+  <button (click)="filterIt('language','nl')" mat-menu-item>Dutch</button>
+  <button (click)="filterIt('language','pt')" mat-menu-item>Portuguese</button>
+  <button (click)="filterIt('language','ru')" mat-menu-item>Russian</button>
+  <button (click)="filterIt('language','se')" mat-menu-item>Sami</button>
+  <button (click)="filterIt('language','zh')" mat-menu-item>Chinese</button>
 </mat-menu>
 </mat-toolbar>
 <app-news-sources class="source"></app-news-sources>
 <router-outlet></router-outlet>
 <ngx-ui-loader></ngx-ui-loader>
+<footer>
+		<section>
+			<div class="footer-contact">
+				<a class="contact-link" href="https://github.com/alabhya139" target="_blank">
+					<i style="font-size: 32px; color: white;" class="fab fa-github"></i>
+				</a>
+				<a class="contact-link" href="https://www.facebook.com/alabhya.pandey.14" target="_blank">
+					<i style="font-size: 32px; color: white;" class="fab fa-facebook-square"></i>
+				</a>
+				<a class="contact-link" href="https://www.linkedin.com/in/alabhya-pandey-654270102/" target="_blank">
+					<i style="font-size: 32px; color: white;" class="fab fa-linkedin"></i>
+				</a>
+			</div>
+      <p class="footer-para myFonts">&copy 2018 Designed and Developed by Alabhya Pandey</p>
+      <p style="margin-top:0; color:white;" class="footer-para myFonts">Powered By: <a href="https://newsapi.org">NewsApi</a></p>
+		</section>
+</footer>

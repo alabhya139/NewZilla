@@ -37,14 +37,30 @@ export class NewsSourcesComponent implements OnInit {
     nav: true
   }
 
-  sources = [];
+  sources:any
 
   constructor(private apiService: ApiServiceService) { }
 
   ngOnInit() {
 
     this.fetchSources();
+    this.filterData()
     
+  }
+  
+
+  filterData(){
+    this.apiService.currentFilter$.subscribe(data=>{
+      if(data!==null && data!==undefined && data!==""){
+        this.apiService.getSourcesByParams(data.key,data.value)
+      .subscribe(data=>{
+        this.sources = data;
+        this.sources = this.sources.sources;
+        console.log(this.sources);
+
+      })
+      }
+    })
   }
 
   fetchSources(){

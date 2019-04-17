@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient } from '@angular/common/http'
+import {HttpClient, HttpParams } from '@angular/common/http'
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -11,6 +11,9 @@ export class ApiServiceService{
   apiKey = "c53d7b2df549415cb0fae91c4ddcb15d";
   private currentHeadline = new BehaviorSubject<any>(null);
   currentHeadline$ = this.currentHeadline.asObservable();
+
+  private filter = new BehaviorSubject<any> (null);
+  currentFilter$ = this.filter.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -25,6 +28,15 @@ export class ApiServiceService{
 
   syncHeadline(data:any){
     this.currentHeadline.next(data);
+  }
+
+  filterContent(data){
+    this.filter.next(data);
+  }
+
+  getSourcesByParams(key,value){
+
+    return this.http.get(`${this.baseUrl}sources?${key}=${value}&apikey=${this.apiKey}`);
   }
 
 
