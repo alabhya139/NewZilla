@@ -1,0 +1,14 @@
+<owl-carousel-o [options]="customOptions">
+
+  <ng-container  *ngFor="let source of sources; let index= index;">
+    <ng-template class="flexbox" carouselSlide [id]="index">
+      <mat-card [routerLink]="['/sources',source.id]" [routerLinkActive]="['link-active']" class="card">
+        <p>{{source.name}}</p>
+        <h6>{{source.description}}</h6>
+        <i class="fas fa-globe"><a href={{source.url}} target="_blank">Visit Site</a></i>
+      </mat-card>
+    </ng-template>
+  </ng-container>
+
+
+</owl-carousel-o>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="poster">
+    <img src={{headline?.urlToImage}} alt="">
+  </div>
+  <div class="title">
+    <h3>{{headline?.title}}</h3>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="description">
+    <p>{{headline?.description}}</p>
+    <p>{{headline?.content}}</p>
+    <a href={{headline?.url}} target="_blank">Read More</a>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <h6>{{headline?.author}}</h6>
+    </div>
+    <div class="source">
+      <h6>{{headline?.source.name}}, {{headline?.publishedAt | date}}</h6>
+    </div>
+  </div>
+</div>
